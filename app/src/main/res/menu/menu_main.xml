@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <item
+        android:id="@+id/action_rate"
+        app:showAsAction="never"
+        android:title="@string/title_rate"/>
+
+    <item
+        android:id="@+id/action_share"
+        android:icon="@drawable/ic_share_black_24dp"
+        app:showAsAction="never"
+        android:title="@string/title_share"/>
+
+    <item
+        android:id="@+id/action_download"
+        android:title="@string/title_otherartist"
+        app:showAsAction="never"/>
+</menu>

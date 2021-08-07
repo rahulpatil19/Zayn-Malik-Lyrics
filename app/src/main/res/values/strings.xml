@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">Zayn Malik</string>
+
+    <string name="position">position</string>
+
+    <!--Songs Title  -->
+    <string name="pillowtalk">PillowTalk</string>
+    <string name="befour">BeFoUr</string>
+    <string name="itsyou">iT\'s YoU</string>
+    <string name="drunk">dRuNk</string>
+    <string name="cruel">Snakehips - Cruel ft. Zayn</string>
+    <string name="dusktilldown">Dusk Till Dawn ft. Sia</string>
+    <string name="lucozade">lUcOzAdE</string>
+    <string name="she">sHe</string>
+    <string name="idwlf">I Don\'t Wanna Live Forever ft. Taylor Swift</string>
+    <string name="foolforyou">FOoL fOr YoU</string>
+    <string name="borderez">BoRdErZ</string>
+    <string name="rearview">rEaR vIeW</string>
+    <string name="tio">TiO</string>
+    <string name="wrong">Wrong ft. Kehlani</string>
+    <string name="minofmine">Mine of mine(Intro)</string>
+    <string name="flower">fLoWer</string>
+    <string name="who">Who</string>
+    <string name="shedontloveme">She Don\'t Love Me</string>
+    <string name="partynextdoor">Still Got Time ft. PartyNextDoor</string>
+    <string name="golden">Golden</string>
+    <string name="iwontmind">I won\'t mind</string>
+    <string name="bright">Bright</string>
+    <string name="dosomethinggood">Do Something Good</string>
+    <string name="likeiwould">Like I Would</string>
+    <string name="blue">Blue</string>
+    <string name="truth">tRuTh</string>
+
+
+    <!-- Menu Strings -->
+    <string name="title_otherartist">Download 1D Lyrics</string>
+    <string name="title_share">Share</string>
+    <string name="title_rate">Rate in Play Store</string>
+</resources>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#443863</color>
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="activity_background">#251a3f</color>
+
+    <color name="detail_title_background">#1e1630</color>
+
+    <color name="line_divider">#777777</color>
+
+    <color name="song_lyric">#bdbdbd</color>
+
+</resources>
