@@ -3,39 +3,43 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/activity_background"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="patil.rahul.lyrics.DetailActivity">
 
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        style="@style/title_style"
-         />
-
-    <ScrollView
-        android:layout_below="@id/title"
-        android:layout_above="@id/adView1"
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            app:titleTextColor="@color/white"
+            app:navigationIcon="@drawable/ic_arrow_back"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ScrollView
+        android:layout_below="@id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
         <TextView
             android:id="@+id/lyrics"
-            style="@style/lyric_style"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:textAlignment="center"
+            android:lineSpacingExtra="4dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
     </ScrollView>
 
-    <com.google.android.gms.ads.AdView
-        xmlns:ads="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/adView1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true"
-        ads:adSize="SMART_BANNER"
-        ads:adUnitId="ca-app-pub-3203412101337273/9783660022"
-        />
 
 </RelativeLayout>

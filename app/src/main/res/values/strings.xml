@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Zayn Malik</string>
+    <string name="app_name">Zayn Lyrics</string>
 
     <string name="position">position</string>
 
@@ -31,6 +31,39 @@
     <string name="blue">Blue</string>
     <string name="truth">tRuTh</string>
 
+    <!-- Icarus falls titles -->
+    <string name="thereyouare">There you are</string>
+    <string name="letme">Let Me</string>
+    <string name="backtolife">Back to Life</string>
+    <string name="fingers">Fingers</string>
+    <string name="flightfthestars">Flight of the Stars</string>
+    <string name="goodguy">Good Guy</string>
+    <string name="goodyears">Good Years</string>
+    <string name="icarusinterlude">Icarus Interlude</string>
+    <string name="ifigotyou">If I Got You</string>
+    <string name="imprint">Imprint</string>
+    <string name="insomnia">Insomnia</string>
+    <string name="natural">Natural</string>
+    <string name="rainberry">Rainberry</string>
+    <string name="satisfaction">Satisfaction</string>
+    <string name="scripted">Scripted</string>
+    <string name="sourdiesel">Sour Diesel</string>
+    <string name="standstill">Stand Still</string>
+    <string name="tonight">Tonight</string>
+    <string name="toomuch">Too Much</string>
+
+    <!-- NBIL -->
+    <string name="better">Better</string>
+    <string name="calamity">Calamity</string>
+    <string name="connexion">Connexion</string>
+    <string name="whenlovesaround">When Love\'s Around</string>
+    <string name="outside">Outside</string>
+    <string name="riverroad">River Road</string>
+    <string name="sweat">Sweat</string>
+    <string name="tightrope">Tightrope</string>
+    <string name="unfuckwitable">Unfuckwitable</string>
+    <string name="vibez">Vibez</string>
+    <string name="windowsill">Windowsill</string>
 
     <!-- Menu Strings -->
     <string name="title_otherartist">Download 1D Lyrics</string>

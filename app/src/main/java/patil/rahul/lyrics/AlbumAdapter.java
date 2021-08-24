@@ -1,12 +1,14 @@
 package patil.rahul.lyrics;
 
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
@@ -14,21 +16,22 @@ import java.util.List;
  * Created by rahul on 26/9/17.
  */
 
-public class SongAdapter extends RecyclerView.Adapter<SongAdapter.SongViewHolder> {
+public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.SongViewHolder> {
 
-    List<Integer> mSong;
+    List<String> mSong;
 
     private OnSongClick mSongClick;
 
     public interface OnSongClick{
-        void onClick(int position);
+        void onClick(String songName);
     }
 
-    public SongAdapter(OnSongClick songClick, List<Integer> song){
+    public AlbumAdapter(OnSongClick songClick, List<String> song){
         mSong = song;
         mSongClick = songClick;
     }
 
+    @NonNull
     @Override
     public SongViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
@@ -46,9 +49,8 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.SongViewHolder
 
     @Override
     public void onBindViewHolder(SongViewHolder holder, int position) {
-
-       int pos =  mSong.get(position);
-        holder.mSongTextView.setText(pos);
+        String albumName = mSong.get(position);
+        holder.mSongTextView.setText(albumName);
     }
 
     @Override
@@ -68,8 +70,8 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.SongViewHolder
 
         @Override
         public void onClick(View view) {
-            int itemClick = getAdapterPosition();
-            mSongClick.onClick(itemClick);
+            String clickedItem = mSong.get(getAdapterPosition());
+            mSongClick.onClick(clickedItem);
         }
     }
 }

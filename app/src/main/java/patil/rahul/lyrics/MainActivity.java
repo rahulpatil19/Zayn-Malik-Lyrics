@@ -3,101 +3,61 @@ package patil.rahul.lyrics;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.ShareCompat;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.MobileAds;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ShareCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.viewpager2.adapter.FragmentStateAdapter;
+import androidx.viewpager2.widget.ViewPager2;
+
+import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.tabs.TabLayoutMediator;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements SongAdapter.OnSongClick {
+public class MainActivity extends AppCompatActivity {
 
 
-    private RecyclerView mRecyclerView;
+    private List<String> tabList = new ArrayList<>();
 
-    private SongAdapter mAdapter;
-
-    private static final String SONG_LIST = "songs";
-
-    private List<Integer> mTitle;
-
-    private AdView mAdView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(R.style.AppTheme);
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
-        MobileAds.initialize(this, "ca-app-pub-3203412101337273~6540217882");
+        tabList.add("Nobody is Listening");
+        tabList.add("Icarus Falls");
+        tabList.add("Mind of Mine");
 
-        mAdView = (AdView) findViewById(R.id.adView);
+        ViewPager2 viewPager = findViewById(R.id.viewpager);
+        TabLayout tabLayout = findViewById(R.id.tabLayout);
+
+        LyricsPagerAdapter lyricsPagerAdapter = new LyricsPagerAdapter(this);
+
+        viewPager.setAdapter(lyricsPagerAdapter);
+
+        new TabLayoutMediator(tabLayout, viewPager, (tab, position) ->
+                tab.setText(tabList.get(position))
+        ).attach();
+
+       // MobileAds.initialize(this, "ca-app-pub-3203412101337273~6540217882");
+
+     /*   mAdView = (AdView) findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
 
-        mAdView.loadAd(adRequest);
-
-        if (savedInstanceState != null){
-           mTitle = savedInstanceState.getIntegerArrayList(SONG_LIST);
-        }
-
-        mRecyclerView = findViewById(R.id.recyclerview);
-
-        mTitle = new ArrayList<>();
-
-        mTitle.add(R.string.dusktilldown);
-        mTitle.add(R.string.partynextdoor);
-        mTitle.add(R.string.idwlf);
-        mTitle.add(R.string.pillowtalk);
-        mTitle.add(R.string.likeiwould);
-        mTitle.add(R.string.befour);
-        mTitle.add(R.string.itsyou);
-        mTitle.add(R.string.drunk);
-        mTitle.add(R.string.shedontloveme);
-        mTitle.add(R.string.cruel);
-        mTitle.add(R.string.minofmine);
-        mTitle.add(R.string.lucozade);
-        mTitle.add(R.string.dosomethinggood);
-        mTitle.add(R.string.she);
-        mTitle.add(R.string.foolforyou);
-        mTitle.add(R.string.wrong);
-        mTitle.add(R.string.rearview);
-        mTitle.add(R.string.tio);
-        mTitle.add(R.string.who);
-        mTitle.add(R.string.flower);
-        mTitle.add(R.string.borderez);
-        mTitle.add(R.string.golden);
-        mTitle.add(R.string.bright);
-        mTitle.add(R.string.iwontmind);
-        mTitle.add(R.string.blue);
-        mTitle.add(R.string.truth);
-
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-
-        mRecyclerView.setLayoutManager(layoutManager);
-
-        mRecyclerView.setHasFixedSize(true);
-
-        mRecyclerView.addItemDecoration(new SimpleDividerItemDecoration(this));
-
-        mAdapter = new SongAdapter(this, mTitle);
-
-        mRecyclerView.setAdapter(mAdapter);
+        mAdView.loadAd(adRequest);*/
     }
 
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-
-        outState.putIntegerArrayList(SONG_LIST, (ArrayList<Integer>) mTitle);
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -125,20 +85,6 @@ public class MainActivity extends AppCompatActivity implements SongAdapter.OnSon
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public void onClick(int position) {
-        Intent intent = new Intent(this, DetailActivity.class);
-        intent.putExtra("position", position);
-        startActivity(intent);
-    }
-
-    @Override
-    protected void onDestroy() {
-        if (mAdView != null){
-            mAdView.destroy();
-        }
-        super.onDestroy();
-    }
 
     void shareIt() {
         Uri uri = Uri.parse("https://play.google.com/store/apps/details?id=patil.rahul.lyrics");
@@ -146,9 +92,25 @@ public class MainActivity extends AppCompatActivity implements SongAdapter.OnSon
         String title = "Share with/via";
         String textToShare = "Checkout Zayn Malik lyrics app on Google Play Store. Download it today from " + uri;
 
-        ShareCompat.IntentBuilder.from(MainActivity.this)
-                .setType(mimeType)
-                .setChooserTitle(title)
-                .setText(textToShare).startChooser();
+        ShareCompat.IntentBuilder builder = new ShareCompat.IntentBuilder(MainActivity.this);
+        builder.setType(mimeType).setChooserTitle(title).setText(textToShare).startChooser();
+    }
+
+    static class LyricsPagerAdapter extends FragmentStateAdapter{
+
+        public LyricsPagerAdapter(@NonNull FragmentActivity fragmentActivity) {
+            super(fragmentActivity);
+        }
+
+        @NonNull
+        @Override
+        public Fragment createFragment(int position) {
+            return AlbumFragment.newInstance(position);
+        }
+
+        @Override
+        public int getItemCount() {
+            return 3;
+        }
     }
 }

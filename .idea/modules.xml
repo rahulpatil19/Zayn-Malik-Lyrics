@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/ZaynMalik.iml" filepath="$PROJECT_DIR$/ZaynMalik.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Zayn-Malik-Lyrics.iml" filepath="$PROJECT_DIR$/.idea/modules/Zayn-Malik-Lyrics.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Zayn-Malik-Lyrics.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Zayn-Malik-Lyrics.app.iml" />
     </modules>
   </component>
 </project>
